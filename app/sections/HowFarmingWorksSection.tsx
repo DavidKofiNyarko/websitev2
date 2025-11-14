@@ -14,7 +14,12 @@ const steps = [
     title: "Register Your Farm",
     description: "Sign up online or through our field agents.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -29,7 +34,12 @@ const steps = [
     title: "Farm Assessment",
     description: "Our team visits and verifies your farm's potential.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -44,7 +54,12 @@ const steps = [
     title: "Get Inputs & Support",
     description: "Receive funding, inputs, and guidance from our team.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -59,7 +74,12 @@ const steps = [
     title: "Farm & Grow",
     description: "We provide continuous technical support until harvest.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -72,9 +92,15 @@ const steps = [
   {
     number: 5,
     title: "Harvest & Earn",
-    description: "Your produce is sold through our offtaker network, and profits are shared.",
+    description:
+      "Your produce is sold through our offtaker network, and profits are shared.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -170,7 +196,10 @@ export default function HowFarmingWorksSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-transparent py-16 md:py-24 px-4 w-full overflow-x-hidden">
+    <section
+      ref={sectionRef}
+      className="bg-white py-16 md:py-24 px-4 w-full overflow-x-hidden"
+    >
       <div className="mx-auto max-w-7xl w-full">
         {/* Heading and Subtitle */}
         <div className="text-center mb-12 md:mb-16">
@@ -184,7 +213,7 @@ export default function HowFarmingWorksSection() {
             ref={subtitleRef}
             className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed"
           >
-            We keep things simple; so you can focus on farming while we handle
+            We keep things simple, so you can focus on farming while we handle
             the rest.
           </p>
         </div>
@@ -223,7 +252,10 @@ export default function HowFarmingWorksSection() {
 
         {/* CTA Button */}
         <div ref={ctaRef} className="text-center">
-          <a href="https://app.agripath.co/signin" className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block">
+          <a
+            href="https://app.agripath.co/signin"
+            className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block"
+          >
             Register Your Farm Today
           </a>
         </div>
@@ -231,4 +263,3 @@ export default function HowFarmingWorksSection() {
     </section>
   );
 }
-

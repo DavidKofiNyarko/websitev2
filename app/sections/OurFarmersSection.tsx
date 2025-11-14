@@ -106,7 +106,7 @@ export default function OurFarmersSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-transparent py-16 md:py-24 px-4 w-full overflow-x-hidden"
+      className="bg-white py-16 md:py-24 px-4 w-full overflow-x-hidden"
     >
       <div className="mx-auto max-w-7xl w-full">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -124,8 +124,9 @@ export default function OurFarmersSection() {
             >
               We work with smallholder farmers across Ghana, with a special
               focus on youth and women ready to grow beyond subsistence farming.
-              Whether you're starting small or expanding your fields, we're here
-              to help you succeed.
+              Whether you&apos;re starting small or expanding your fields,
+              we&apos;re here to help you succeed. we&apos;re here to help you
+              succeed.
             </p>
 
             {/* List */}

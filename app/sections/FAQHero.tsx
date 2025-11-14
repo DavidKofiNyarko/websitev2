@@ -1,13 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 import Image from "next/image";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const faqCategories = [
   "General Info",
@@ -98,98 +92,9 @@ const faqs = {
 };
 
 export default function FAQHero() {
-  const heroRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const searchRef = useRef<HTMLDivElement>(null);
-  const faqRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState("General Info");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedIndex, setExpandedIndex] = useState(0);
-
-  // GSAP animations on mount
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!heroRef.current) return;
-
-      // Animate title
-      if (titleRef.current) {
-        gsap.from(titleRef.current, {
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top 95%",
-            end: "top 60%",
-            toggleActions: "play none none none",
-          },
-          opacity: 0,
-          y: 40,
-          duration: 1.2,
-          ease: "power3.out",
-        });
-      }
-
-      // Animate subtitle
-      if (subtitleRef.current) {
-        gsap.from(subtitleRef.current, {
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top 95%",
-            end: "top 60%",
-            toggleActions: "play none none none",
-          },
-          opacity: 0,
-          y: 30,
-          duration: 1.1,
-          ease: "power3.out",
-        });
-      }
-
-      // Animate search bar
-      if (searchRef.current) {
-        gsap.from(searchRef.current, {
-          scrollTrigger: {
-            trigger: searchRef.current,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-          opacity: 0,
-          y: 30,
-          duration: 1,
-          ease: "power3.out",
-        });
-      }
-
-      // Tabs animation removed for better alignment
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  // Animate FAQ items when they change (tab or search)
-  useEffect(() => {
-    if (!faqRef.current) return;
-
-    const items = Array.from(faqRef.current.children);
-    if (items.length === 0) return;
-
-    // Kill any existing animations
-    gsap.killTweensOf(items);
-
-    // Set initial state
-    gsap.set(items, { opacity: 0, y: 30 });
-
-    // Animate in
-    gsap.to(items, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: "power3.out",
-      stagger: {
-        amount: 0.3,
-        from: "start",
-      },
-    });
-  }, [activeTab, searchQuery]);
 
   const filteredFAQs = faqs[activeTab as keyof typeof faqs].filter(
     (faq) =>
@@ -202,10 +107,7 @@ export default function FAQHero() {
   };
 
   return (
-    <section
-      ref={heroRef}
-      className="relative w-full overflow-x-hidden bg-white"
-    >
+    <section className="relative w-full overflow-x-hidden bg-white">
       {/* Hero Section with Background */}
       <div className="relative py-24 md:py-32 px-4 overflow-hidden min-h-[500px] md:min-h-[600px] flex items-start">
         {/* Background Image */}
@@ -224,23 +126,20 @@ export default function FAQHero() {
         <div className="mx-auto max-w-4xl w-full relative z-10 pt-8">
           {/* Title */}
           <div className="text-center mb-8 md:mb-10">
-            <h1
-              ref={titleRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold font-kulim-park text-[#1C442A] mb-4"
-            >
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-kulim-park text-[#1C442A] mb-4">
               Frequently Asked Questions (FAQs)
             </h1>
-            <p ref={subtitleRef} className="text-base md:text-lg text-gray-700">
+            <p className="text-base md:text-lg text-gray-700">
               Find answers to common questions about AgriPath
             </p>
           </div>
 
           {/* Search Bar */}
-          <div ref={searchRef} className="mb-6 md:mb-8">
+          <div className="mb-6 md:mb-8">
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <svg
-                  className="w-5 h-5 text-gray-400 group-focus-within:text-[#1C442A] transition-colors duration-300"
+                  className="w-5 h-5 text-gray-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -258,7 +157,7 @@ export default function FAQHero() {
                 placeholder="Search FAQs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-300 rounded-xl focus:border-[#1C442A] focus:outline-none focus:ring-2 focus:ring-[#1C442A]/20 text-base shadow-sm hover:shadow-md transition-all duration-300"
+                className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-300 rounded-xl focus:border-[#1C442A] focus:outline-none text-base"
               />
             </div>
           </div>
@@ -273,10 +172,10 @@ export default function FAQHero() {
                   setExpandedIndex(0);
                   setSearchQuery("");
                 }}
-                className={`px-5 py-2.5 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 whitespace-nowrap ${
+                className={`px-5 py-2.5 rounded-xl font-semibold text-sm md:text-base whitespace-nowrap ${
                   activeTab === category
-                    ? "bg-[#1C442A] text-white shadow-lg shadow-[#1C442A]/30"
-                    : "bg-white text-gray-700 border-2 border-gray-300 hover:border-[#1C442A] hover:text-[#1C442A] hover:shadow-md"
+                    ? "bg-[#1C442A] text-white"
+                    : "bg-white text-gray-700 border-2 border-gray-300 hover:border-[#1C442A] hover:text-[#1C442A]"
                 }`}
               >
                 {category}
@@ -288,30 +187,28 @@ export default function FAQHero() {
           <div className=" py-8 md:py-12 px-4">
             <div className="mx-auto max-w-4xl w-full">
               {/* FAQ Items */}
-              <div ref={faqRef} className="space-y-4">
+              <div className="space-y-4">
                 {filteredFAQs.map((faq, index) => {
                   const isExpanded = expandedIndex === index;
                   return (
                     <div
                       key={`${activeTab}-${index}-${faq.question}`}
-                      className="bg-white border-2 border-gray-300 rounded-xl overflow-hidden transition-all duration-500 hover:border-[#1C442A] hover:shadow-xl hover:-translate-y-1 transform"
+                      className="bg-white border-2 border-gray-300 rounded-xl overflow-hidden"
                     >
                       <button
                         onClick={() => toggleFAQ(index)}
-                        className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-[#1C442A]/20 hover:bg-gradient-to-r hover:from-green-50/50 hover:to-transparent transition-all duration-300 group"
+                        className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                       >
-                        <span className="font-semibold text-base md:text-lg text-gray-900 pr-4 group-hover:text-[#1C442A] transition-colors duration-300">
+                        <span className="font-semibold text-base md:text-lg text-gray-900 pr-4">
                           {faq.question}
                         </span>
                         <div
-                          className={`shrink-0 w-8 h-8 rounded-full bg-gradient-to-br ${
-                            isExpanded
-                              ? "from-[#F5A623] to-[#e89613]"
-                              : "from-gray-200 to-gray-300"
-                          } flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}
+                          className={`shrink-0 w-8 h-8 rounded-full ${
+                            isExpanded ? "bg-[#F5A623]" : "bg-gray-300"
+                          } flex items-center justify-center`}
                         >
                           <svg
-                            className={`w-5 h-5 text-white transition-all duration-300 ${
+                            className={`w-5 h-5 text-white ${
                               isExpanded ? "rotate-180" : "rotate-0"
                             }`}
                             fill="none"
@@ -327,19 +224,13 @@ export default function FAQHero() {
                           </svg>
                         </div>
                       </button>
-                      <div
-                        className={`transition-all duration-500 ease-in-out ${
-                          isExpanded
-                            ? "max-h-96 opacity-100"
-                            : "max-h-0 opacity-0"
-                        }`}
-                      >
+                      {isExpanded && (
                         <div className="px-6 pb-5 border-t border-gray-100 pt-4">
                           <p className="text-base text-gray-700 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
-                      </div>
+                      )}
                     </div>
                   );
                 })}
@@ -347,7 +238,7 @@ export default function FAQHero() {
 
               {/* No Results Message */}
               {filteredFAQs.length === 0 && (
-                <div className="text-center py-16 transform transition-all duration-500 animate-fade-in">
+                <div className="text-center py-16">
                   <div className="inline-block p-4 bg-gray-100 rounded-full mb-4">
                     <svg
                       className="w-12 h-12 text-gray-400"

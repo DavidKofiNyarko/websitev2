@@ -51,7 +51,7 @@ export default function MetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-transparent py-16  px-4 relative z-10 w-full overflow-x-hidden"
+      className="bg-white py-16  px-4 relative z-10 w-full overflow-x-hidden"
     >
       <div className="mx-auto max-w-7xl w-full">
         <div

@@ -123,7 +123,7 @@ export default function WeGrowWithYouSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-transparent py-16 md:py-24 px-4 w-full overflow-x-hidden"
+      className="bg-white py-16 md:py-24 px-4 w-full overflow-x-hidden"
     >
       <div className="mx-auto max-w-7xl w-full">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -156,7 +156,7 @@ export default function WeGrowWithYouSection() {
               ref={introRef}
               className="text-base md:text-lg text-gray-700 mb-8 leading-relaxed"
             >
-              Farming shouldn't be a struggle. We provide the resources,
+              Farming shouldn&apos;t be a struggle. We provide the resources,
               knowledge, and partnerships farmers need to grow with confidence
               from planting to harvest.
             </p>
