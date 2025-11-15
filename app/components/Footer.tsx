@@ -27,10 +27,7 @@ export default function Footer() {
               >
                 AGRIPATH
               </div>
-              <div
-                className="text-sm font-medium"
-                style={{ color: "#F5A623" }}
-              >
+              <div className="text-sm font-medium" style={{ color: "#F5A623" }}>
                 FARMING & ADVISORY
               </div>
             </div>
@@ -245,4 +242,3 @@ export default function Footer() {
     </footer>
   );
 }
-

@@ -21,6 +21,11 @@ const teamMembers = [
     image: "/team/David.png",
   },
   {
+    name: "Michael  Anderson",
+    title: "Lead Engineer (Engineering)",
+    image: "/team/mike-2.png",
+  },
+  {
     name: "Ewuradwoa Koranteng",
     title: "Investment Manager",
     image: "/team/Ewuradjoa.png",
@@ -160,9 +165,9 @@ export default function MeetTheTeamSection() {
             ref={introRef}
             className="text-base md:text-lg text-gray-700 max-w-3xl leading-relaxed"
           >
-            We're a diverse team of strategists, finance experts, and innovators
-            driven by a shared mission, to make agriculture a profitable,
-            transparent, and inclusive industry for all.
+            We&apos;re a diverse team of strategists, finance experts, and
+            innovators driven by a shared mission, to make agriculture a
+            profitable, transparent, and inclusive industry for all.
           </p>
         </div>
 
@@ -173,12 +178,12 @@ export default function MeetTheTeamSection() {
         >
           {teamMembers.map((member, index) => (
             <div key={index} className="text-center">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden">
+              <div className="relative w-32 h-32 md:w-56 md:h-56 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover grayscale"
+                  className="object-contain grayscale "
                 />
               </div>
               <h3 className="text-base md:text-lg font-bold mb-1 text-gray-900">
@@ -201,8 +206,8 @@ export default function MeetTheTeamSection() {
           </h3>
           <p className="text-base md:text-lg text-gray-700 mb-8 leading-relaxed">
             Join a mission-driven team shaping the future of agri-investment in
-            Africa. Whether you're a farmer, technologist, investor, or creative
-            thinker, there's a place for you at AgriPath.
+            Africa. Whether you&apos;re a farmer, technologist, investor, or
+            creative thinker, there&apos;s a place for you at AgriPath.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <a

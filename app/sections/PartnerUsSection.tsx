@@ -44,12 +44,24 @@ export default function PartnerUsSection() {
 
       if (buttonsRef.current) {
         const buttons = Array.from(buttonsRef.current.children);
-        tl.from(
+        // Ensure buttons are visible initially
+        gsap.set(buttons, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        });
+
+        tl.fromTo(
           buttons,
           {
             opacity: 0,
             y: 30,
             scale: 0.9,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
             duration: 0.9,
             ease: "power3.out",
             stagger: {
@@ -108,20 +120,21 @@ export default function PartnerUsSection() {
         {/* CTA Buttons */}
         <div
           ref={buttonsRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center z-10"
+          style={{ opacity: 1 }}
         >
           <a
             href="https://app.agripath.co/signin"
             className="px-8 py-3.5 bg-white text-[#1C442A] font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
           >
-            I'm a Farmer
+            I&apos;m a Farmer
           </a>
           <a
             href="https://app.agripath.co/signin"
             className="px-8 py-3.5 font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
             style={{ backgroundColor: "#F5A623", color: "#1C442A" }}
           >
-            I'm a Buyer
+            I&apos;m a Buyer
           </a>
         </div>
       </div>

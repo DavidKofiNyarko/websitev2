@@ -115,7 +115,7 @@ export default function AboutUsHero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-kulim-park text-[#1C442A] leading-tight">
               Empowering Farmers. Connecting Investors.
               <br />
-              Growing Africa's Future.
+              Growing Africa&apos;s Future.
             </h1>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function AboutUsHero() {
                 <p>
                   <strong>AgriPath</strong> is an agricultural investment
                   platform that connects capital to verified farms and trusted
-                  partners across Ghana. We're building a future where
+                  partners across Ghana. We&apos;re building a future where
                   agriculture is accessible, transparent, and profitable for
                   everyone.
                 </p>
@@ -176,7 +176,7 @@ export default function AboutUsHero() {
                   alt="AgriPath team meeting"
                   width={600}
                   height={800}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover grayscale-100"
                 />
               </div>
             </div>
