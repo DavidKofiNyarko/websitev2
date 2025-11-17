@@ -20,11 +20,11 @@ const teamMembers = [
     title: "Chief Technology Officer (CTO)",
     image: "/team/David.png",
   },
-  {
-    name: "Michael  Anderson",
-    title: "Lead Engineer (Engineering)",
-    image: "/team/mike-2.png",
-  },
+  // {
+  //   name: "Michael  Anderson",
+  //   title: "Lead Engineer (Engineering)",
+  //   image: "/team/mike-2.png",
+  // },
   {
     name: "Ewuradwoa Koranteng",
     title: "Investment Manager",
