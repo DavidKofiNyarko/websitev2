@@ -182,7 +182,7 @@ export default function FarmerFormModal({
         </motion.div>
         <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank You!</h3>
         <p className="text-gray-600">
-          Your investment request has been received. We'll get back to you soon.
+          Your registration request has been received. We'll get back to you shortly.
         </p>
       </motion.div>
     </motion.div>
