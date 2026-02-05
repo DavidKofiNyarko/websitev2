@@ -40,11 +40,9 @@ const stepVariants = {
     x: 0,
     scale: 1,
     transition: { 
-      type: 'spring', 
+      type: 'spring' as const, 
       stiffness: 300, 
-      damping: 30, 
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94]
+      damping: 30
     } 
   },
   exit: { 
@@ -52,8 +50,7 @@ const stepVariants = {
     x: -30,
     scale: 0.96,
     transition: { 
-      duration: 0.25,
-      ease: [0.25, 0.46, 0.45, 0.94]
+      duration: 0.25
     } 
   },
 };
@@ -69,11 +66,9 @@ const formSlideVariants = {
     x: 0,
     scale: 1,
     transition: { 
-      type: 'spring', 
+      type: 'spring' as const, 
       stiffness: 260, 
-      damping: 28, 
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1]
+      damping: 28
     } 
   },
   exit: { 
@@ -81,8 +76,7 @@ const formSlideVariants = {
     x: -50,
     scale: 0.95,
     transition: { 
-      duration: 0.3,
-      ease: [0.4, 0, 1, 1]
+      duration: 0.3
     } 
   },
 };
@@ -115,7 +109,7 @@ const cardVariants = {
     y: 0, 
     scale: 1,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 300,
       damping: 25,
       duration: 0.4
@@ -125,7 +119,7 @@ const cardVariants = {
     scale: 1.02,
     y: -2,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 400,
       damping: 20
     }
@@ -133,7 +127,7 @@ const cardVariants = {
   tap: {
     scale: 0.98,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 500,
       damping: 30
     }
@@ -147,7 +141,7 @@ const buttonVariants = {
     y: 0,
     transition: {
       delay: 0.3,
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 300,
       damping: 25
     }
@@ -155,7 +149,7 @@ const buttonVariants = {
   hover: {
     scale: 1.02,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 400,
       damping: 20
     }
@@ -163,7 +157,7 @@ const buttonVariants = {
   tap: {
     scale: 0.98,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 500,
       damping: 30
     }
