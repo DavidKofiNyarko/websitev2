@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useModal } from "../components/ModalContext";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -58,6 +59,7 @@ const teamMembers = [
 ];
 
 export default function MeetTheTeamSection() {
+  const { openPartnerSelectionModal } = useModal();
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const introRef = useRef<HTMLParagraphElement>(null);
@@ -211,17 +213,17 @@ export default function MeetTheTeamSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <a
-              href="https://app.agripath.co/signin"
-              className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
+              href="https://www.linkedin.com/company/107099056/admin/dashboard/"
+              className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center cursor-pointer"
             >
               Join Our Team
             </a>
-            <a
-              href="https://app.agripath.co/signin"
-              className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center"
+            <button
+              onClick={openPartnerSelectionModal}
+              className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center cursor-pointer"
             >
               Partner With Us
-            </a>
+            </button>
           </div>
         </div>
       </div>

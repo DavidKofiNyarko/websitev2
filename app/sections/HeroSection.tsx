@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import InfiniteScroll from "../components/InfiniteScroll";
 import Link from "next/link";
+import { useModal } from "../components/ModalContext";
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -12,6 +13,7 @@ export default function HeroSection() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const { openFarmerModal } = useModal();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -119,13 +121,13 @@ export default function HeroSection() {
                 >
                   Start Investing Now
                 </Link>
-                <Link
-                  href="https://app.agripath.co/signin"
+                <button
+                  onClick={openFarmerModal}
                   className="liquid-button px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center relative overflow-hidden"
                   style={{ opacity: 1 }}
                 >
                   <span className="relative z-10">Register Your Farm</span>
-                </Link>
+                </button>
               </div>
             </div>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useModal } from "../components/ModalContext";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -113,6 +114,7 @@ const steps = [
 ];
 
 export default function HowFarmingWorksSection() {
+  const { openFarmerModal } = useModal();
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -252,12 +254,13 @@ export default function HowFarmingWorksSection() {
 
         {/* CTA Button */}
         <div ref={ctaRef} className="text-center">
-          <a
-            href="https://app.agripath.co/signin"
-            className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block"
+          <button
+            type="button"
+            onClick={openFarmerModal}
+            className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block cursor-pointer"
           >
             Register Your Farm Today
-          </a>
+          </button>
         </div>
       </div>
     </section>

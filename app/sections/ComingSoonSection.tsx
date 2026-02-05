@@ -106,7 +106,7 @@ export default function ComingSoonSection() {
             </div>
             {/* CTA Button */}
             <a
-              href="https://app.agripath.co/signin"
+              href="https://app.agripath.co/signup"
               className="px-8 py-3.5 w-fit bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block"
             >
               Create Free Account

@@ -333,7 +333,7 @@ export default function InvestmentOpportunitiesSection() {
                 Start Investing Now
               </a>
               <a
-                href="https://app.agripath.co/signin"
+                href="#contact-us"
                 className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center"
               >
                 Talk to Someone

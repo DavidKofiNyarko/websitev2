@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useModal } from "../components/ModalContext";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function PartnerUsSection() {
+  const { openFarmerModal, openOffTakerModal } = useModal();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -123,19 +125,19 @@ export default function PartnerUsSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center z-10"
           style={{ opacity: 1 }}
         >
-          <a
-            href="https://app.agripath.co/signin"
+          <button
+            onClick={openFarmerModal}
             className="px-8 py-3.5 bg-white text-[#1C442A] font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
           >
             I&apos;m a Farmer
-          </a>
-          <a
-            href="https://app.agripath.co/signin"
+          </button>
+          <button
+            onClick={openOffTakerModal}
             className="px-8 py-3.5 font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
             style={{ backgroundColor: "#F5A623", color: "#1C442A" }}
           >
             I&apos;m a Buyer
-          </a>
+          </button>
         </div>
       </div>
     </section>

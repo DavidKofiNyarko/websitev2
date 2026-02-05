@@ -92,7 +92,7 @@ export default function Navbar() {
               Sign in
             </a>
             <a
-              href="https://app.agripath.co/signin"
+              href="https://app.agripath.co/signup"
               className="px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 md:py-2 text-xs sm:text-sm font-semibold text-white bg-[#1C442A] rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out whitespace-nowrap"
             >
               <span className="hidden sm:inline">Create Account</span>

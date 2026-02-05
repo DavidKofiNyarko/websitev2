@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Kulim_Park, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ModalProvider } from "./components/ModalContext";
+import ModalContainer from "./components/ModalContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -160,7 +162,10 @@ export default function RootLayout({
           }}
         />
         <Navbar />
-        {children}
+        <ModalProvider>
+          {children}
+          <ModalContainer />
+        </ModalProvider>
         <Footer />
       </body>
     </html>

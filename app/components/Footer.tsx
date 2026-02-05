@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
 
           {/* Contact & Social */}
-          <div>
+          <div id="contact-us">
             <h3
               className="text-lg font-semibold mb-4"
               style={{ color: "#F5A623" }}

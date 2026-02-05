@@ -213,9 +213,9 @@ export default function WhyChooseUsSection() {
               <a href="https://app.agripath.co/signin" className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center">
                 Create Free Account
               </a>
-              <a href="https://app.agripath.co/signin" className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center">
+             {/* <a href="https://app.agripath.co/signin" className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center">
                 Invest In AgriPath
-              </a>
+              </a>  */}
             </div>
           </div>
 

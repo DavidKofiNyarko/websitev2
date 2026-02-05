@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -121,8 +122,9 @@ export default function AboutSection() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-kulim-park text-[#1C442A]">
                 Empowering Growth Across Africa's Farmlands.
               </h2>
-              <button
-                className="px-6 py-3 border-2 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ease-out flex items-center gap-2 group"
+              <Link href="/about">
+                <button
+                  className="px-6 py-3 border-2 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ease-out flex items-center gap-2 group cursor-pointer"
                 style={{ borderColor: "#1C442A", color: "#1C442A" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = "#1C442A";
@@ -148,6 +150,7 @@ export default function AboutSection() {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
 
             {/* Right side - Description */}

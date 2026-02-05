@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useModal } from "../components/ModalContext";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function FarmersHero() {
+  const { openFarmerModal } = useModal();
   const heroRef = useRef<HTMLElement>(null);
   const tagRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -132,12 +134,13 @@ export default function FarmersHero() {
             ref={buttonsRef}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <a
-              href="https://app.agripath.co/signin"
-              className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
+            <button
+              type="button"
+              onClick={openFarmerModal}
+              className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center cursor-pointer"
             >
               Register Your Farm
-            </a>
+            </button>
             <a
               href="https://app.agripath.co/signin"
               className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-white hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center"
@@ -150,3 +153,4 @@ export default function FarmersHero() {
     </section>
   );
 }
+
