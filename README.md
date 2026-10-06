@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AgriPath Website
+
+AgriPath is a modern marketing and conversion website built with Next.js 16 and React 19. The platform connects investors with sustainable agricultural projects in Ghana, offering opportunities to invest in farming while supporting local farmers and contributing to food security.
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage with hero, metrics, investment opportunities, and partner sections |
+| `/about` | Core values, team members, and partnership information |
+| `/investors` | Investor-focused landing with trust signals, how-it-works flow, and payment security |
+| `/farmers` | Farmer-focused landing with growth stories, farming process, and farmer profiles |
+| `/faqs` | Frequently asked questions and support section |
+| `/legal` | Legal information and compliance details |
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **UI:** React 19, TypeScript 5
+- **Styling:** Tailwind CSS 4, PostCSS
+- **Animations:** Framer Motion, GSAP
+- **Icons:** Lucide React
+- **Carousel:** React Slick
+- **Linting:** ESLint (Next.js Core Web Vitals + TypeScript)
+
+## Prerequisites
+
+- Node.js >= 18.17
+- npm (or your preferred package manager)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start the development server |
+| `npm run build` | Build the application for production |
+| `npm run start` | Start the production server |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx          # Root layout with SEO metadata, fonts, and schemas
+  page.tsx            # Homepage composition
+  globals.css         # Global styles and custom effects
+  components/         # Shared UI components (Navbar, Footer, Modals)
+  sections/           # Reusable page sections (Hero, Metrics, About, etc.)
+  about/              # About page route
+  farmers/            # Farmers page route
+  faqs/               # FAQs page route
+  investors/          # Investors page route
+  legal/              # Legal page route
+fonts/                # Custom font exports
+public/               # Static assets
+types/                # TypeScript type definitions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application is optimized for deployment on Vercel. For other platforms, run `npm run build` and serve the output from the `.next` directory.
 
-## Deploy on Vercel
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Sensitive configuration is managed via `.env` files. These files are gitignored by default.
