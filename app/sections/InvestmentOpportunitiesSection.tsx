@@ -4,10 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useModal } from "../components/ModalContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function InvestmentOpportunitiesSection() {
+  const { openPartnerSelectionModal } = useModal();
   const [activeTab, setActiveTab] = useState("Crop Projects");
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -326,12 +328,12 @@ export default function InvestmentOpportunitiesSection() {
 
             {/* CTA Buttons */}
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://app.agripath.co/signin"
-                className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
+              <button
+                onClick={openPartnerSelectionModal}
+                className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center cursor-pointer"
               >
-                Start Investing Now
-              </a>
+                Partner With Us
+              </button>
               <a
                 href="#contact-us"
                 className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center"

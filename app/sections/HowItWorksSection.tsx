@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useModal } from "../components/ModalContext";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -108,6 +109,7 @@ const steps = [
 ];
 
 export default function HowItWorksSection() {
+  const { openPartnerSelectionModal } = useModal();
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -266,9 +268,12 @@ export default function HowItWorksSection() {
             <span className="text-red-500">❤️</span>
           </p>
           <div ref={ctaRef}>
-            <a href="https://app.agripath.co/signin" className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-white hover:bg-[#1C442A] hover:text-white transition-all duration-300 ease-out inline-block">
-              View Available Projects
-            </a>
+            <button
+              onClick={openPartnerSelectionModal}
+              className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-white hover:bg-[#1C442A] hover:text-white transition-all duration-300 ease-out inline-block cursor-pointer"
+            >
+              Partner With Us
+            </button>
           </div>
         </div>
       </div>

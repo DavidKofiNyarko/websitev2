@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import InfiniteScroll from "../components/InfiniteScroll";
-import Link from "next/link";
 import { useModal } from "../components/ModalContext";
 
 export default function HeroSection() {
@@ -13,7 +12,7 @@ export default function HeroSection() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-  const { openFarmerModal } = useModal();
+  const { openPartnerSelectionModal } = useModal();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -114,19 +113,11 @@ export default function HeroSection() {
                 ref={ctaRef}
                 className="flex flex-col sm:flex-row gap-4 z-10 relative"
               >
-                <Link
-                  href="https://app.agripath.co/signin"
-                  className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center"
-                  style={{ opacity: 1 }}
-                >
-                  Start Investing Now
-                </Link>
                 <button
-                  onClick={openFarmerModal}
-                  className="liquid-button px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center relative overflow-hidden"
-                  style={{ opacity: 1 }}
+                  onClick={openPartnerSelectionModal}
+                  className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center cursor-pointer"
                 >
-                  <span className="relative z-10">Register Your Farm</span>
+                  Partner With Us
                 </button>
               </div>
             </div>

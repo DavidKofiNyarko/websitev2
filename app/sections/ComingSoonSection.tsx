@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useModal } from "../components/ModalContext";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function ComingSoonSection() {
+  const { openPartnerSelectionModal } = useModal();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -105,12 +107,12 @@ export default function ComingSoonSection() {
               </div>
             </div>
             {/* CTA Button */}
-            <a
-              href="https://app.agripath.co/signup"
-              className="px-8 py-3.5 w-fit bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block"
+            <button
+              onClick={openPartnerSelectionModal}
+              className="px-8 py-3.5 w-fit bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out inline-block cursor-pointer"
             >
-              Create Free Account
-            </a>
+              Partner With Us
+            </button>
           </div>
 
           {/* Right side - Smartphone Image */}

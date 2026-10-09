@@ -83,35 +83,18 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
-            <a
-              href="https://app.agripath.co/signin"
-              className="hidden md:block px-3 md:px-4 lg:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold text-gray-700 border border-gray-300 rounded-full hover:border-[#1C442A] hover:text-[#1C442A] hover:bg-gray-50 transition-all duration-300 ease-out whitespace-nowrap"
-            >
-              Sign in
-            </a>
-            <a
-              href="https://app.agripath.co/signup"
-              className="px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 md:py-2 text-xs sm:text-sm font-semibold text-white bg-[#1C442A] rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out whitespace-nowrap"
-            >
-              <span className="hidden sm:inline">Create Account</span>
-              <span className="sm:hidden">Join</span>
-            </a>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMobileMenu}
-              className="lg:hidden p-2 text-gray-700 hover:text-[#1C442A] transition-colors rounded-lg hover:bg-gray-50"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5 sm:w-6 sm:h-6" />
-              ) : (
-                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
-              )}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="lg:hidden p-2 text-gray-700 hover:text-[#1C442A] transition-colors rounded-lg hover:bg-gray-50"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+            ) : (
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -146,21 +129,6 @@ export default function Navbar() {
               >
                 FAQs
               </Link>
-              {/* Mobile CTA Buttons */}
-              <div className="pt-4 mt-4 border-t border-gray-200 flex flex-col gap-2">
-                <a
-                  href="https://app.agripath.co/signin"
-                  className="w-full px-4 py-2.5 text-sm font-semibold text-gray-700 border border-gray-300 rounded-full hover:border-[#1C442A] hover:text-[#1C442A] hover:bg-gray-50 transition-all duration-300 ease-out text-center"
-                >
-                  Sign in
-                </a>
-                <a
-                  href="https://app.agripath.co/signin"
-                  className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-[#1C442A] rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-out text-center"
-                >
-                  Create Account
-                </a>
-              </div>
             </div>
           </div>
         )}

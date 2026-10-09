@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useModal } from "../components/ModalContext";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +33,7 @@ const benefits = [
 ];
 
 export default function WhyChooseUsSection() {
+  const { openPartnerSelectionModal } = useModal();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -210,12 +212,12 @@ export default function WhyChooseUsSection() {
 
             {/* CTA Buttons */}
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4">
-              <a href="https://app.agripath.co/signin" className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center">
-                Create Free Account
-              </a>
-             {/* <a href="https://app.agripath.co/signin" className="px-8 py-3.5 border-2 border-[#1C442A] text-[#1C442A] font-semibold rounded-full bg-transparent hover:bg-[#1C442A] hover:text-white hover:shadow-lg transition-all duration-300 ease-out text-center">
-                Invest In AgriPath
-              </a>  */}
+              <button
+                onClick={openPartnerSelectionModal}
+                className="px-8 py-3.5 bg-[#1C442A] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out text-center cursor-pointer"
+              >
+                Partner With Us
+              </button>
             </div>
           </div>
 

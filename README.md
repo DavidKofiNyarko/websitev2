@@ -1,7 +1,7 @@
 # AgriPath Website
 
 <p align="center">
-  <img src="public/logo.png" alt="AgriPath Logo" width="200" />
+  <img src="logo.png" alt="AgriPath Logo" width="200" />
 </p>
 
 AgriPath is a modern marketing and conversion website built with Next.js 16 and React 19. The platform connects investors with sustainable agricultural projects in Ghana, offering opportunities to invest in farming while supporting local farmers and contributing to food security.
@@ -71,6 +71,7 @@ fonts/                # Custom font exports
 public/               # Static assets
 types/                # TypeScript type definitions
 ```
+
 
 ## Deployment
 
