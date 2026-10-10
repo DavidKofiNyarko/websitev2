@@ -27,6 +27,34 @@ const unitOptions = [
   'Other'
 ];
 
+const SuccessDialog = () => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.9 }}
+    className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+  >
+    <motion.div
+      initial={{ scale: 0.9 }}
+      animate={{ scale: 1 }}
+      className="bg-white rounded-2xl p-6 w-full max-w-sm text-center shadow-xl"
+    >
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", delay: 0.1 }}
+        className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4"
+      >
+        <Check className="w-8 h-8 text-green-600" />
+      </motion.div>
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+      <p className="text-gray-600">
+        Your investment request has been received. We&apos;ll get back to you soon.
+      </p>
+    </motion.div>
+  </motion.div>
+);
+
 export default function InvestmentFormModal({ isOpen, onClose, preSelectedCrop }: InvestmentFormModalProps) {
   const [formData, setFormData] = useState({
     name: '',
@@ -138,36 +166,7 @@ export default function InvestmentFormModal({ isOpen, onClose, preSelectedCrop }
         ? prev.selectedCrops.filter(c => c !== crop)
         : [...prev.selectedCrops, crop]
     }));
-  };
-
-  // Success modal component
-  const SuccessDialog = () => (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-    >
-      <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        className="bg-white rounded-2xl p-6 w-full max-w-sm text-center shadow-xl"
-      >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", delay: 0.1 }}
-          className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4"
-        >
-          <Check className="w-8 h-8 text-green-600" />
-        </motion.div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank You!</h3>
-        <p className="text-gray-600">
-          Your investment request has been received. We'll get back to you soon.
-        </p>
-      </motion.div>
-    </motion.div>
-  );
+};
 
   return (
     <AnimatePresence>
@@ -197,9 +196,9 @@ export default function InvestmentFormModal({ isOpen, onClose, preSelectedCrop }
 
             {/* Form Header */}
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Let's Grow Together</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Let&apos;s Grow Together</h2>
               <p className="text-gray-600 mt-1">
-                Choose your crop, tell us how many units you want, and we'll take it from there.
+                Choose your crop, tell us how many units you want, and we&apos;ll take it from there.
               </p>
             </div>
 
@@ -208,7 +207,7 @@ export default function InvestmentFormModal({ isOpen, onClose, preSelectedCrop }
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  What's your name? <span className="text-red-500">*</span>
+                  What&apos;s your name? <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -226,7 +225,7 @@ export default function InvestmentFormModal({ isOpen, onClose, preSelectedCrop }
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  What's your email address? <span className="text-red-500">*</span>
+                  What&apos;s your email address? <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -244,7 +243,7 @@ export default function InvestmentFormModal({ isOpen, onClose, preSelectedCrop }
               {/* Phone Field */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  What's your phone number? <span className="text-red-500">*</span>
+                  What&apos;s your phone number? <span className="text-red-500">*</span>
                 </label>
                 <div className="flex gap-2">
                   <select

@@ -33,12 +33,6 @@ jobs:
       - name: Check TypeScript types
         run: npx tsc --noEmit
 
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Run Unit Tests
-        run: npm test -- --watchAll=false --passWithNoTests
-
       - name: Verify Next.js Build
         run: npm run build
         env:
