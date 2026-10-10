@@ -1,0 +1,2 @@
+echo "Pre-commit hook disabled"
+exit 0

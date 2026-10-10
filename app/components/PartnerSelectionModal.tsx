@@ -146,11 +146,14 @@ export default function PartnerSelectionModal({
               </motion.button>
 
               {/* Investor Card */}
-              <motion.a
-                href="https://app.agripath.co/signup"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl p-6 text-left hover:border-blue-400 transition-all duration-300 block"
+              <motion.button
+                whileHover={{ scale: 1.02, y: -4 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  onClose();
+                  onSelectInvestor();
+                }}
+                className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl p-6 text-left hover:border-blue-400 transition-all duration-300"
               >
                 <div className="w-full h-50 bg-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-700 transition-colors">
                 <Image
@@ -182,7 +185,7 @@ export default function PartnerSelectionModal({
                     />
                   </svg>
                 </div>
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         </motion.div>

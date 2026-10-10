@@ -1,4 +1,4 @@
-name: Release
+name: Production Release Pipeline
 
 on:
   push:
@@ -10,10 +10,44 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
+  security-events: write
 
 jobs:
+  # STEP 1: Code Quality & Integrity Checks
+  validate:
+    name: Validate Code & Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check TypeScript types
+        run: npx tsc --noEmit
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Unit Tests
+        run: npm test -- --watchAll=false --passWithNoTests
+
+      - name: Verify Next.js Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+  # STEP 2: Automated Semantic Release (Runs only if validation passes)
   release:
-    name: Release
+    name: Semantic Release
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

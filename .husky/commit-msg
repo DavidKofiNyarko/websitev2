@@ -1,0 +1,2 @@
+echo "Commit-msg hook disabled"
+exit 0
